@@ -9,12 +9,17 @@
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
     transition: 0.2s ease-in-out;
     color: #000;
     text-decoration: none;
 }
 
+.logo-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;;
+}
 ::selection{
     background-color: var(--Soft-Red);
     color: #fff;

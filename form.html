@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#header">Art &amp Design Hub</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#download">Download</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#artists">Artists</a>
+            <a href="#footer">Contact</a>
+            <a href="game.html">Game</a>
+            <a href="form.html">Form</a>
+            <a href="testing-form.html">Testing Form</a>
+            <a href="logo.html">Logo</a>
+        </nav>
+
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+    <main>
+        <section>
+            <form id="surveyForm">
+       
+            
+                <label>У якій області мистецтва ви зацікавлені:</label><br>
+                <input type="radio" id="frequency1" name="frequency" value="painting">
+                <label for="frequency1">Малювання</label><br>
+                <input type="radio" id="frequency2" name="frequency" value="music">
+                <label for="frequency2">Музика</label><br>
+                <input type="radio" id="frequency3" name="frequency" value="sculptures">
+                <label for="frequency3">Скульптури</label><br>
+
+                <label>Як ви оцінюєте себе у вибраній галузі:</label><br>
+                <input type="range" id="mark" name="mark" min="1" max="10">
+                <output for="mark" id="markValue"></output><br><br>
+
+                <label for="gain">Ваш досвід у галузі мистецтва:</label><br>
+                <select id="gain" name="gain">
+                    <option value="one-month">До 1 місяця</option>
+                    <option value="few-monthes">Декілька місяців</option>
+                    <option value="one-year">Близько 1 року</option>
+                    <option value="more-than-year">Більше декількох років</option>
+                    <option value="more-than-ten-years">Більше 10 років</option>
+                </select><br><br>
+
+                <label for="email"> Ведіть свій email</label>
+                <input type="email" id="email" name="email">
+            
+                <label for="others">Чи бажаєте написати пару слів:</label><br>
+                <textarea id="others" name="others" rows="4"></textarea><br><br>
+
+                <button type="submit">Відправити</button>
+        </section>
+        <section>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <div id="searchResults"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const searchInput = document.getElementById('searchInput');
+    
+        searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.trim().toLowerCase();
+        const surveyResults = JSON.parse(localStorage.getItem('surveys')) || [];
+        const searchResultsContainer = document.getElementById('searchResults');
+        if (searchResultsContainer) {
+            searchResultsContainer.innerHTML = '';
+        }
+    
+        if (searchTerm !== '') {
+            const searchResults = surveyResults.filter(result => {
+                return result.email && result.email.toLowerCase().includes(searchTerm);
+            });
+    
+            if (searchResults.length > 0) {
+                const resultsList = document.createElement('ul');
+                searchResults.forEach(result => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = JSON.stringify(result, null, 2);
+                    resultsList.appendChild(listItem);
+                });
+                searchResultsContainer.appendChild(resultsList);
+            } else {
+                const noResultsMessage = document.createElement('p');
+                noResultsMessage.textContent = 'No results found.';
+                searchResultsContainer.appendChild(noResultsMessage);
+            }
+        }
+    });
+    </script>
+</body>
+<script src="js/script.js"></script>
+</html>

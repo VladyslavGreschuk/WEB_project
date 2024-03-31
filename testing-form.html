@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    
+#questions-container {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.question{
+    padding: 10px;
+}
+
+.answer{
+    padding: 10px;
+}
+.question h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+}
+
+.answer input[type="radio"] {
+    
+    font-size: 16px;
+}
+#result {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+
+.main-test{
+    margin-top: 150px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+.answer label.green {
+    color: green;
+}
+
+.answer label.red {
+    color: red;
+}
+#submit-btn{
+    box-sizing: border-box;
+    width: 160px;
+    height: 50px;
+    background: #ED4C5C;
+    border-radius: 6px;
+    color: #FFFFFF;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#header">Art &amp Design Hub</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#download">Download</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#artists">Artists</a>
+            <a href="#footer">Contact</a>
+            <a href="game.html">Game</a>
+            <a href="form.html">Form</a>
+            <a href="testing-form.html">Testing Form</a>
+            <a href="logo.html">Logo</a>
+        </nav>
+
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+    <main class="main-test">
+        <div class="content-test">
+            <div id="questions-container"></div>
+            <button id="submit-btn">Завершити тест</button>
+            <div id="result"></div>
+        </div>
+    </main>
+    <script src="js/testing.js"></script>
+</body>
+</html>
